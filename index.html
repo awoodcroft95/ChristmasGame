@@ -7,9 +7,18 @@
     <title>Document</title>
 </head>
 <body>
-    <canvas id="myCanvas" width="500" height="500" style="border:1px solid #d3d3d3;">
+    <canvas id="myCanvas" width="500" height="500" style="border:1px solid #d3d3d3;"></canvas>
+    <audio id="music">
+        <source src="music/HaveYourselfaMerryFunkyChristmas.mp3" type="audio/mpeg">
+        <p>If you are seeing this your browser does not support audio.</p>
+    </audio>
 </body>
 
 <script src="script.js"></script>
+<script>
+    var audio = document.getElementById("music");
+    audio.autoplay = true;
+    audio.load();
+</script>
 
 </html>
