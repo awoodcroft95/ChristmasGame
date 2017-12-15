@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
-    <audio id="music">
-        <source src="music/HaveYourselfaMerryFunkyChristmas.mp3" type="audio/mpeg"></source>
-        <source src="music/Jingle_Bells.mp3" type="audio/mpeg"></source>
-        <source src="music/Let_it_snow.mp3" type="audio/mpeg"></source>
-        <p>If you are seeing this your browser does not support audio.</p>
-    </audio>
     <canvas id="myCanvas" width="600" height="600" style="border:1px solid #d3d3d3;"></canvas>
     <table>
         <tr>
@@ -21,14 +17,35 @@
             <th>Score</th>
         </tr>
     </table>
+    <audio id="music">
+            <source src="music/HaveYourselfaMerryFunkyChristmas.mp3" type="audio/mpeg"></source>
+            <source src="music/Jingle_Bells.mp3" type="audio/mpeg"></source>
+            <source src="music/Let_it_snow.mp3" type="audio/mpeg"></source>
+            <p>If you are seeing this your browser does not support audio.</p>
+    </audio>
 </body>
 
 <script src="script.js"></script>
 <script>
+    var count = 1;
     var audio = document.getElementById("music");
     audio.autoplay = true;
     audio.controls = true;
     audio.load();
+    audio.addEventListener('ended', function () {
+        count++;
+        if (count === 1){
+            audio.src = "music/HaveYourselfaMerryFunkyChristmas.mp3";
+        } else if(count === 2){
+            audio.src = "music/Jingle_Bells.mp3";
+        } else {
+            audio.src = "music/Let_it_snow.mp3";
+            count = 0;
+        }
+        audio.pause();
+        audio.load();
+        audio.play();
+    });
 </script>
 
 </html>
