@@ -12,11 +12,18 @@ var santaImage = new Image();
 santaImage.onload = function () {
 	santaReady = true;
 };
-santaImage.src = "images/au_puch.png";
+santaImage.src = "images/santa_small.png";
+
+var bgReady = false;
+var bgImage = new Image();
+bgImage.onload = function () {
+	bgReady = true;
+};
+bgImage.src = "images/bgImage2.png";
 
 let santa={
     x : canvasW/2,
-    y :canvasH-64,
+    y :canvasH-100,
     speed : 100
 }
 
@@ -74,7 +81,9 @@ var main = function () {
 };
 
 var render = function () {
-    
+    if (bgReady) {
+		ctx.drawImage(bgImage,0, 0);
+	}    
 
     if (santaReady) {
 		ctx.drawImage(santaImage, santa.x, santa.y);
