@@ -16,7 +16,7 @@ santaImage.src = "images/au_puch.png";
 
 let santa={
     x : canvasW/2,
-    y :canvasH-32,
+    y :canvasH-64,
     speed : 100
 }
 
@@ -28,7 +28,8 @@ let evil={
 
 let powerups={
 }
- let keysDown = {};
+let keysDown = {};
+
 //Keyboard Input Listeners
 addEventListener("keydown", function (e) {
 	keysDown[e.keyCode] = true;
@@ -73,7 +74,9 @@ var main = function () {
 };
 
 var render = function () {
-	if (santaReady) {
+    
+
+    if (santaReady) {
 		ctx.drawImage(santaImage, santa.x, santa.y);
 	}
 };
